@@ -9,5 +9,5 @@ mongoose
 .catch((err)=>{console.log(err)});
 
 app.listen(config.port,()=>{
-    console.log("connected to port",config.port)
+    console.log("connected to port No: ",config.port)
 })

@@ -26,13 +26,16 @@ const getTaskById = async(id)=>{
     return taskById;
 }
 
-const updateTask = async(_id,title,description)=>{
+const updateTask = async(_id,title,description,status)=>{
     const obj={};
     if(title){
         obj.title=title;
     }
     if(description){
         obj.description=description;
+    }
+    if(status){
+        obj.status=status
     }
 
     const updatedTask= await Task.findOneAndUpdate({_id},{

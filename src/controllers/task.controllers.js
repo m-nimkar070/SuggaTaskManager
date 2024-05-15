@@ -37,11 +37,11 @@ const getTaskById = catchAsync(async(req,res)=>{
 
 const updateTask = catchAsync(async(req,res)=>{
     const _id = req.params.taskId;
-    const {title , description} = req.body;
-    if(!title && !description){
+    const {title , description ,status} = req.body;
+    if(!title && !description && !status){
         throw new ApiError(httpStatus.NO_CONTENT,"Required title or descripyion to update");
     }else{
-        const updatedTask =await taskService.updateTask(_id,title,description);
+        const updatedTask =await taskService.updateTask(_id,title,description,status);
         if(!updatedTask){
             throw new ApiError(httpStatus.NOT_FOUND,"No task with this ID");
         }
